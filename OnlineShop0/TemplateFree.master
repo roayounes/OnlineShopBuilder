@@ -1,0 +1,197 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="TemplateFree.master.cs" Inherits="TemplateFree" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+
+<head id="Head1" runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop Homepage Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+        <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<body id="Body1" runat="server">
+<form id="form1" runat="server">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                     <li><a id="A1" runat="server" onserverclick="goToHome" class="navbar-brand" href="/OnlineShop0/TemplateFreeAbout.aspx" ><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;Home</a>
+                    </li>
+                    <li><a runat="server" onserverclick="goAbout" href="/OnlineShop0/TemplateFreeAbout.aspx" >About</a>
+                    </li>
+                    <li><a runat="server" onserverclick="goContact" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user" runat="server" visible="false" id="SignUpBox">
+            <li >       
+              <a runat="server" id="SignOut" onserverclick="LogOut" href="/OnlineShop0/Default00.aspx" ><i class="glyphicon glyphicon-off"></i> Sign Out</a>
+              
+            </li>
+          </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        
+        <!-- /.container -->
+    </nav>
+    <div id="Div1" class="container" runat="server">
+
+        <div id="Div2" class="row" runat="server">
+
+            <div id="Div3" class="col-md-3" runat="server">
+                <p class="lead" runat="server" id="StoreName">Shop Name</p>
+                  <div class="list-group" runat="server" id="ClientInfo" visible="false">
+                    <a href="#" class="list-group-item"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;My Account</a>
+                    <a runat="server" id="MyCart" onserverclick="goToCart" href="/OnlineShop0/Products_Photos/TemplateFreeMyCart.aspx" class="list-group-item"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;&nbsp;My Shopping-Cart</a>
+                </div>
+<form class="form-horizontal" role="form">
+<div runat="server" id="SignInBox">
+  <div class="form-group">
+    <asp:Label ID="Error" runat="server" Text="Invalid Email Or Password" Visible="false"></asp:Label>
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <br />
+    <br />
+    <div class="col-sm-10">
+        <asp:TextBox runat="server" autocomplete="off" class="form-control" id="EmailC"></asp:TextBox>
+    </div>
+  </div>
+  <br />
+  <br />
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <br />
+    <br />
+    <div class="col-sm-10">
+        <asp:TextBox class="form-control" id="PassC" TextMode="Password" runat="server"></asp:TextBox>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <asp:Button ID="SignIn" OnClick="SignIn_Click" runat="server" class="btn btn-default" Text="Sign in" /> or <a href="Default00.aspx" runat="server" onserverclick="signUpPage"> Sign Up</a>
+    </div>
+  </div>
+  </div>
+</form>
+
+            </div>
+
+
+            <div class="col-md-9">
+
+                <div class="row carousel-holder">
+
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <asp:Image ID="Cover1" runat="server" class="slide-image" ImageUrl="~/Temp2.jpg" Width="900px" Height="400px"/>
+                                </div>
+                                <div class="item">
+                                     <asp:Image ID="Cover2" runat="server" class="slide-image" ImageUrl="~/Add_Prod.jpg" Width="900px" Height="400px"/>
+                                </div>
+                                <div class="item">
+                                     <asp:Image ID="Cover3" runat="server" class="slide-image" ImageUrl="~/Website-Launch.jpg" Width="900px" Height="400px"/>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+      
+      <div class="row">
+  <div class="col-md-5 col-md-offset-3">
+  <div class="input-group">
+      <asp:TextBox runat="server" id="SearchWords" class="form-control"></asp:TextBox>
+      <span class="input-group-btn">
+        <button class="btn btn-default" runat="server" onserverclick="Search" type="button">Search<i class="glyphicon glyphicon-search"></i></button>
+      </span>
+    </div>
+  </div>
+</div>
+<br />
+             
+    
+                
+                    
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">\
+        
+        </asp:ContentPlaceHolder>
+    </div>
+                   
+    
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+    </form>
+    <div class="container">
+
+        <hr>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Company 2013 - Template by <a href="http://maxoffsky.com/">Maks</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+
+</html>
